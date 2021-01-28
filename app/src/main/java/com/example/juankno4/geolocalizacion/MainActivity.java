@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TextView text1, text2;
     Button btn;
     private int REQUEST_CODE = 100;
-    private double latitude = 25.5011, altitude = -103.3875,f1,f2;
-    private String a,l;
+    private double latitude = 25.5011, longitude = -103.3875,latitude1=25.5012, longitude1=-103.3876,f1,f2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,14 +54,9 @@ public class MainActivity extends AppCompatActivity {
                 DecimalFormat df = new DecimalFormat("####.0000");
                 f1 = location.getLatitude();
                 f2 = location.getLongitude();
-                a = String.valueOf(location.getLatitude());
-                l = String.valueOf(location.getLongitude());
                 text1.setText(df.format(f1));
-                text2.setText(df.format(f2 ));
-                Log.d("f2", "esta es la latitude: "+df.format(f1)+" esta es la latitude propuesta "+df.format(latitude));
-                Log.d("f1", "esta es la longitud: "+df.format(f2)+" esta es la longitud propuesta "+ df.format(altitude));
-                Toast.makeText(MainActivity.this, String.valueOf(Double.parseDouble(a)), Toast.LENGTH_SHORT).show();
-                if (df.format(f1).equals(df.format(latitude)) && df.format(f2).equals(df.format(altitude))) {
+                text2.setText(df.format(f2));
+                if (df.format(f1).equals(df.format(latitude)) && df.format(f2).equals(df.format(longitude)) || df.format(f1).equals(df.format(latitude1)) || df.format(f2).equals(df.format(longitude1))) {
                     btn.setEnabled(true);
                     Toast.makeText(MainActivity.this, "Estas en el lugar correcto", Toast.LENGTH_SHORT).show();
 
